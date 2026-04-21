@@ -163,3 +163,6 @@ test2 = pure (+) <*> ZipList [1,2,3] <*> ZipList [10,20,30]
 -- If the function returns lists of different lengths, there is no consistent
 -- way to preserve positional zipping. Any flattening strategy would break
 -- the zip-based Applicative behavior, so the monad laws cannot hold.
+
+main :: IO ()
+main = putStrLn "Compiled successfully"

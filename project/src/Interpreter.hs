@@ -32,12 +32,6 @@ parseInput grammar input =
             [] -> Left "Input does not match grammar"
 
 
-parseExpr :: Grammar -> Expr -> Text -> Either String (ParseTree, Text)
-parseExpr grammar expr input =
-  case parseExprAll grammar expr input of
-    (result : _) -> Right result
-    [] -> Left "Parse failed"
-
 parseExprAll :: Grammar -> Expr -> Text -> [(ParseTree, Text)]
 parseExprAll grammar expr input =
   case expr of

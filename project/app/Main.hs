@@ -18,26 +18,26 @@ main = do
 
   case args of
     [file] -> do
-       exists <- doesFileExist file
+      exists <- doesFileExist file
 
-            if not exists
-              then putStrLn ("File not found: " ++ file)
-              else do
-                contents <- readFile file
+      if not exists
+        then putStrLn ("File not found: " ++ file)
+        else do
+          contents <- readFile file
 
-                case parseGrammar (T.pack contents) of
-                  Left err -> putStrLn ("Grammar parse error:\n" ++ errorBundlePretty err)
+          case parseGrammar (T.pack contents) of
+            Left err -> putStrLn ("Grammar parse error:\n" ++ errorBundlePretty err)
 
-                  Right grammar -> do
-                      putStrLn "Grammar parsed successfully."
-                      putStrLn "Provide input to parse: "
-                      input <- getLine
+            Right grammar -> do
+                putStrLn "Grammar parsed successfully."
+                putStrLn "Provide input to parse: "
+                input <- getLine
 
-                      case parseInput grammar (T.pack input) of
-                          Left err -> putStrLn ("Input parse error: " ++ err)
+                case parseInput grammar (T.pack input) of
+                    Left err -> putStrLn ("Input parse error: " ++ err)
 
-                          Right tree -> do
-                              putStrLn "Parse tree:"
-                              putStrLn (prettyPrint tree)
+                    Right tree -> do
+                        putStrLn "Parse tree:"
+                        putStrLn (prettyPrint tree)
 
     _ -> putStrLn "Usage: stack run <grammar-file>"

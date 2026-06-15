@@ -39,6 +39,7 @@ library
   build-depends:
       base >=4.7 && <5
     , containers
+    , directory
     , megaparsec >=9.0 && <10
     , mtl >=2.2 && <2.4
     , text >=2.0 && <3
@@ -56,6 +57,7 @@ executable project-exe
   build-depends:
       base >=4.7 && <5
     , containers
+    , directory
     , megaparsec >=9.0 && <10
     , mtl >=2.2 && <2.4
     , project
@@ -85,6 +87,7 @@ test-suite project-test
       QuickCheck
     , base >=4.7 && <5
     , containers
+    , directory
     , hspec
     , megaparsec >=9.0 && <10
     , mtl >=2.2 && <2.4
